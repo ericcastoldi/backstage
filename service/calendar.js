@@ -49,8 +49,6 @@ const getEvents = (accessToken, calendarName, cb) => {
 };
 
 module.exports = {
-  getEvents,
-  getCalendars,
-  getEventsAsync: Promise.promisify(getEvents),
-  getCalendarsAsync: Promise.promisify(getCalendars)
+  getEvents: Promise.promisify(getEvents),
+  getCalendars: Promise.promisify(getCalendars)
 };

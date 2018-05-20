@@ -53,7 +53,7 @@ app.get('/:calendarName', (req, res) => {
   const { calendarName } = req.params;
   const handle = (err) => handleError(err, res);
 
-  getEventsAsync(accessToken, calendarName)
+  getEvents(accessToken, calendarName)
     .then(evts => {
       res.send(evts);
     })
@@ -67,7 +67,7 @@ app.all('/', function(req, res){
   const accessToken = req.session.access_token;
   const handle = (err) => handleError(err, res);
 
-  getCalendarsAsync(accessToken)
+  getCalendars(accessToken)
     .then(calendars => {
       res.send(calendars);
     })
