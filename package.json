@@ -4,7 +4,23 @@
   "description": "band manager app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "config": {
+    "dev": {
+      "oauth2callback": "http://localhost:8080/oauth2callback",
+      "spotifyClientId": "xxx",
+      "spotifyClientSecret": "xxx"
+    },
+    "prod": {
+      "oauth2callback": "http://backstage-mgmt-app.appspot.com/oauth2callback",
+      "MEMCACHE_URL": "memcached-15002.c1.us-central1-2.gce.cloud.redislabs.com:15002",
+      "MEMCACHE_USERNAME": "xxx",
+      "MEMCACHE_PASSWORD": "xxx",
+      "spotifyClientId": "xxx",
+      "spotifyClientSecret": "xxx"
+    }
   },
   "keywords": [
     "band",
@@ -13,13 +29,28 @@
   "author": "eric castoldi",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/datastore": "1.3.4",
+    "@google-cloud/debug-agent": "2.3.2",
+    "@google-cloud/logging-winston": "^0.8.1",
+    "@google-cloud/storage": "1.6.0",
+    "@google-cloud/trace-agent": "2.4.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "connect-memjs": "^0.2.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "express-winston": "2.5.0",
     "google-calendar": "^1.3.2",
+    "lodash": "4.17.5",
+    "multer": "1.3.0",
+    "mysql": "2.15.0",
+    "nconf": "0.10.0",
     "passport": "^0.4.0",
-    "passport-google-oauth": "^1.0.0"
+    "passport-google-oauth": "^1.0.0",
+    "prompt": "1.0.0",
+    "spotify-web-api-node": "^3.1.1",
+    "uglify-js": "3.3.12",
+    "winston": "2.4.0"
   }
 }
